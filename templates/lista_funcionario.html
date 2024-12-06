@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<div class="div_botao">
+    <a class="cadastro" href="{{ url_for('criar_funcionario') }}">CADASTRO FUNCIONÁRIO</a>
+    <a class="inicial" href="{{url_for('inicial')}}">VOLTAR PARA TELA INICIAL</a>
+</div>
+
+<div class="div_table">
+    <table>
+        <!--thead: define o cabecalho -->
+        <thead>
+        <tr>
+            <!--tr: define a linha -->
+            <!--td: determina uma celula -->
+            <th>Id_cliente</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Email</th>
+            <th>Atualizar</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in lista_de_funcionarios %}
+        <tr>
+            <td>{{item.id_funcionario}}</td>
+            <td>{{item.nome_funcionario}}</td>
+            <td>{{item.CPF}}</td>
+            <td>{{item.email}}</td>
+            <td>
+                <a href="{{url_for('editar_funcionario', funcionario_id= item.id_funcionario)}}">
+                    <img class="controle_icone" src="/static/assets/editar.jpg" width="50" height="50">
+                </a>
+            </td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock conteudo %}

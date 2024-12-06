@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    <form action="{{url_for('editar_produto', produto_id=base_produto.id_produto)}}" method="POST" >
+        <label >Nome</label>
+        <input type="text" name="form_nome_produto" value="{{base_produto.nome_produto}}" required > ---
+        <label >Valor</label>
+        <input type="number" name="form_valor" value="{{base_produto.valor_produto}}" required > ---
+        <hr>
+        <label>Data</label>
+        <input type="text" name="form_data" value="{{base_produto.data_fabricacao}}" required > ---
+        <hr>
+        <button class="btn btn-success" >Editar</button>
+        <button><a class="botao" href="{{url_for('inicial')}}">Cancelar</a></button>
+    </form>
+
+
+{% endblock %}

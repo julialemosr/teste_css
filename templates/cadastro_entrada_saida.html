@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<div class="main2">
+    <div class="card">
+        <form class="form-control" action="{{url_for('criar_entrada_saida')}}" method="POST">
+
+            <div class="letra">
+                <label class="form-label">Data:</label>
+                <input class="form-control" type="text" name="dia_entrada" required placeholder="digite a data">
+            </div>
+
+            <div class="letra">
+                <label class="form-label">tipo:</label>
+                <input class="form-control" type="text" name="tipo" required placeholder="digite se é entrada ou saida">
+            </div>
+
+            <div class="letra">
+                <label class="form-label">Quantidade:</label>
+                <input class="form-control" type="number" name="qtd" required
+                       placeholder="digite a  quantidade do produto">
+            </div>
+
+            <div class="letra_2">
+                <label for="Produto">Produto:</label>
+                <select id="Produto" name="id_produtos">
+                    {% for item in lista_de_produtos%}
+                    <option value="{{item.id_produto}}">{{item.nome_produto}}</option>
+                    {% endfor %}
+                </select><br><br>
+            </div>
+
+            <div class="letra_1">
+                <label for="Funcionario">Funcionario que esta registrando:</label>
+                <select id="Funcionario" name="id_funcionario">
+                    {% for item in lista_de_funcionarios%}
+                    <option value="{{item.id_funcionario}}">{{item.nome_funcionario}}</option>
+                    {% endfor %}
+                </select><br><br>
+            </div>
+
+            <div class="botoes">
+                <button>Adicionar</button>
+                <button><a id="b" href="{{url_for('inicial')}}">Cancelar</a></button>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

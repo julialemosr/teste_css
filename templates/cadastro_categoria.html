@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<div class="main2">
+    <div class="card">
+        <form class="form-control" action="{{url_for('criar_categoria')}}" method="POST">
+
+            <div class="letra">
+                <label class="form-label">Nome da categoria:</label>
+                <input class="form-control" type="text" name="nome_categoria">
+            </div>
+
+            <div class="botoes">
+                <button >Adicionar</button>
+
+                <button><a href="{{url_for('inicial')}}">Cancelar</a></button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}

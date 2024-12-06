@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    <form action="{{url_for('editar_entrada_saida', entrada_saida_id=base_entrada_saida.id_entrada_saida)}}" method="POST" >
+        <label >tipo</label>
+        <input type="text" name="form_tipo" value="{{base_entrada_saida.tipo}}" required > ---
+        <label >qtd</label>
+        <input type="number" name="form_qtd" value="{{base_entrada_saida.qtd}}" required > ---
+        <hr>
+        <label>Data</label>
+        <input type="text" name="form_data_entrada" value="{{base_entrada_saida.data}}" required > ---
+        <hr>
+        <button class="btn btn-success" >Editar</button>
+        <button><a class="botao" href="{{url_for('inicial')}}">Cancelar</a></button>
+    </form>
+
+
+{% endblock %}

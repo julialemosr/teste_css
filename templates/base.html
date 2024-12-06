@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>ex4</title>
+    <link rel="stylesheet" href="/static/template.css">
+    <link rel="stylesheet" href="/static/tabela.css">
+
+</head>
+<body>
+<div class="container">
+    <header>
+        <p class="banco">CONTROLE DA ESTOQUE</p>
+    </header>
+    <nav>
+
+        <a class="pagina" href="{{ url_for('funcionarios') }}">
+            <img class="imagem" src="/static/assets/usuario.png">FUNCIONÁRIO
+        </a>
+
+        <a class="pagina" href="{{ url_for('produtos') }}"><img class="imagem"
+                                                                src="/static/assets/caixa.png">PRODUTOS</a>
+
+        <a class="pagina" href="{{ url_for('categorias') }}"><img class="imagem" src="/static/assets/categorias.png">CATEGORIA</a>
+
+        <a class="pagina" href="{{ url_for('entrada_saidas') }}"><img class="imagem" src="/static/assets/movimentacao-de-carga.png">
+            MOCIMENTAÇÃO</a>
+
+
+        <a class="pagina" href="{{ url_for('grafico_produto') }}"><img class="imagem" src="/static/assets/grafico-de-barras.png">ANALISE</a>
+
+
+
+
+    </nav>
+
+    <main>
+
+        <div class="erro">
+            {% for mensagem in get_flashed_messages()%}
+            {{mensagem}}
+            {%- endfor %}
+        </div>
+
+        {% block conteudo %}
+        <img class="img" src="/static/assets/logo.png" width="600" height="700">
+        <h1 class="introducao">BEM VINDOS</h1>
+        <br><br>
+        <p class="sub_introdução"><br>
+            A Zaphyra Tech é uma empresa especializada<br>
+            em soluções tecnológicas para otimização de processos,<br>
+            com destaque para seu sistema de controle de estoque.<br>
+            A ferramenta permite a automação, organização e monitoramento<br>
+            eficiente dos produtos, oferecendo maior precisão,redução de erros e<br>
+            aumento de produtividade para empresas de todos os portes. </p>
+
+        {% endblock %}
+
+    </main>
+
+</div>
+
+</body>
+</html>

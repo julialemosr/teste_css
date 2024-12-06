@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<div class="main2">
+    <div class="card">
+        <form class="form-control" action="{{url_for('criar_funcionario')}}" method="POST">
+
+            <div class="letra">
+                <label class="form-label">CPF do funcionário:</label>
+                <input class="form-control" type="text" name="CPF">
+            </div>
+
+            <div class="letra">
+                <label class="form-label">Nome do funcionário:</label>
+                <input class="form-control" type="text" name="nome_funcionario">
+            </div>
+
+            <div class="letra">
+                <label class="form-label">Email do funcionário:</label>
+                <input class="form-control" type="text" name="email">
+            </div>
+
+            <div class="botoes">
+                <button >Adicionar</button>
+                <button><a href="{{url_for('inicial')}}">Cancelar</a></button>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

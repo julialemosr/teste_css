@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    <form action="{{url_for('editar_funcionario', funcionario_id=base_funcionario.id_funcionario)}}" method="POST" >
+        <label >Nome</label>
+        <input type="text" name="form_nome" value="{{base_funcionario.nome_funcionario}}" required > ---
+        <label >Email</label>
+        <input type="text" name="form_email" value="{{base_funcionario.email}}" required > ---
+        <hr>
+        <button class="btn btn-success" >Editar</button>
+        <button><a class="botao" href="{{url_for('inicial')}}">Cancelar</a></button>
+    </form>
+
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<div class="div_botao">
+    <a class="pagina" href="{{ url_for('entrada_saidas') }}">VOLTAR PARA A  MOVIMENTAÇÃO</a>
+    <a class="inicial" href="{{url_for('inicial')}}">VOLTAR PARA TELA INICIAL</a>
+</div>
+
+<div class="div_table">
+
+    <table>
+        <!--thead: define o cabecalho -->
+        <thead>
+        <tr>
+            <!--tr: define a linha -->
+            <!--td: determina uma celula -->
+            <th>id_entrada_saida</th>
+            <th>tipo</th>
+            <th>data da entrada ou saida</th>
+            <th>qtd do produto</th>
+            <th>ID_ptoduto</th>
+            <th>nome_produto</th>
+            <th>ID_funcionario</th>
+            <th>nome_funcionario</th>
+            <th>Atualizar</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for e, p, f in saida %}
+        <tr>
+            <td>{{e.id_entrada_saida}}</td>
+            <td>{{e.tipo}}</td>
+            <td>{{e.data}}</td>
+            <td>{{e.qtd}}</td>
+            <td>{{e.id_produtos}}</td>
+            <td>{{p.nome_produto}}</td>
+            <td>{{e.idFuncionario}}</td>
+            <td>{{f.nome_funcionario}}</td>
+            <td>
+                <a href="{{url_for('editar_entrada_saida', entrada_saida_id= e.id_entrada_saida)}}">
+                    <img class="controle_icone" src="/static/assets/editar.jpg" width="50" height="50">
+                </a>
+            </td>
+
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock conteudo %}

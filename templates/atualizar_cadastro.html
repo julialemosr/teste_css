@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    <form action="{{url_for('editar_categoria', categoria_id=base_categoria.id_categoria)}}" method="POST" >
+        <label >Nome</label>
+        <input type="text" name="form_nome_categoria" value="{{base_categoria.nome_categoria}}" required > ---
+        <hr>
+        <button class="btn btn-success" >Editar</button>
+        <button><a class="botao" href="{{url_for('inicial')}}">Cancelar</a></button>
+    </form>
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<div class="main2">
+    <div class="card">
+        <form class="form-control" action="{{url_for('criar_produto')}}" method="POST">
+            <div class="letra">
+                <label class="form-label">Nome do produto:</label>
+                <input class="form-control" type="text" name="Nome do produto" required placeholder="digite o nome">
+            </div>
+
+            <div class="letra">
+                <label class="form-label">Valor do produto:</label>
+                <input class="form-control" type="number" name="Valor do produto" required
+                       placeholder="digite o valor do produto">
+            </div>
+
+            <div class="letra">
+                <label class="form-label">Data de fabricação:</label>
+                <input class="form-control" type="text" name="Data de fabricação" required
+                       placeholder="digite a data de fabricação">
+            </div>
+
+            <div class="letra">
+                <label for="Categoria">Categoria:</label>
+                <select id="Categoria" name="id_categoria">
+                    {% for item in lista_de_categorias%}
+                    <option value="{{item.id_categoria}}">{{item.nome_categoria}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="botoes">
+                <button >Adicionar</button>
+
+                <button><a href="{{url_for('inicial')}}">Cancelar</a></button>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}
